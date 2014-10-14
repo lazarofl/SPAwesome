@@ -55,7 +55,10 @@
  			$scope.showadd = false;
  		}).
  		error(function(error){
- 			$scope.addAlert(error.message, 'danger');
+ 			if(!!error)
+ 				$scope.addAlert(error.message, 'danger');
+ 			else
+ 				$scope.addAlert('Não foi possível adicionar a categoria, verifique a disponibilidade do serviço', 'danger');
  			$scope.loading = false;
  		});
 

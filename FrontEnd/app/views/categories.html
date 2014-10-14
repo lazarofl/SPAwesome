@@ -14,7 +14,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Adicionar</button>
+				<button type="submit" class="btn btn-default" ng-disabled="loading">Adicionar</button>
 			</div>
 		</div>
 	</form>	
@@ -34,7 +34,7 @@
 </div>
 
 <div ng-init="init()">
-	<table class="table table-striped">
+	<table class="table table-striped" ng-show="categories.length > 0">
 		<thead>
 			<tr>
 				<th>#</th>
