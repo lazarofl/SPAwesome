@@ -7,44 +7,44 @@
  * # Categories
  * Factory in the spawesomeApp.
  */
-angular.module('spawesomeApp')
-  .factory('Categories', function ($http, appConfig) {
-    
-    var urlBase = appConfig + '/Category';
+ angular.module('spawesomeApp')
+ .factory('Categories', function ($http, appConfig) {
+
+    var urlBase = appConfig.API_URL() + '/Category';
     var dataFactory = {};
 
     dataFactory.getCategories = function () {
-        return $http.get(urlBase);
+      return $http.get(urlBase);
     };
 
     dataFactory.getCategory = function (id) {
-        if(id == null)
-          throw 'Id não informado';
-        return $http.get(urlBase + '/' + id);
+      if(id == null)
+        throw 'Id não informado';
+      return $http.get(urlBase + '/' + id);
     };
 
     dataFactory.insertCategory = function (category) {
-        if(category == null)
-          throw 'category não informada';
-        return $http.post(urlBase, category);
+      if(category == null)
+        throw 'category não informada';
+      return $http.post(urlBase, category);
     };
 
     dataFactory.updateCategory = function (category) {
-        if(category == null)
-          throw 'category não informada';
-        return $http.put(urlBase + '/' + category.Id, category)
+      if(category == null)
+        throw 'category não informada';
+      return $http.put(urlBase + '/' + category.Id, category)
     };
 
     dataFactory.deleteCategory = function (id) {
-        if(id == null)
-          throw 'Id não informado';
-        return $http.delete(urlBase + '/' + id);
+      if(id == null)
+        throw 'Id não informado';
+      return $http.delete(urlBase + '/' + id);
     };
 
     dataFactory.getSubCategories = function (id) {
-        if(id == null)
-          throw 'Id não informado';
-        return $http.get(urlBase + '/' + id + '/SubCategories');
+      if(id == null)
+        throw 'Id não informado';
+      return $http.get(urlBase + '/' + id + '/SubCategories');
     };
 
     return dataFactory;
