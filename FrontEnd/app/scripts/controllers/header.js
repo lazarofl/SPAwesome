@@ -9,9 +9,9 @@
  */
 angular.module('spawesomeApp')
   .controller('HeaderCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+    $scope.menu = [
+      {name: 'Categorias', location: '/', selected: true, visible: true},
+      {name: 'Login', location: '/#login', selected: false, visible: true},
+      {name: 'Logout', location: '/#logout', selected: false, visible: false}
     ];
   });

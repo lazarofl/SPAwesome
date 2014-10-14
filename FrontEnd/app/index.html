@@ -21,13 +21,11 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
+      <div class="header" ng-controller="HeaderCtrl">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
+          <li ng-repeat="item in menu" ng-class="{active:item.selected}" ng-show="item.visible"><a ng-href="{{item.location}}">{{item.name}}</a></li>
         </ul>
-        <h3 class="text-muted">spawesome</h3>
+        <h3 class="text-muted">SPAwesome - Gestão de categorias</h3>
       </div>
 
       <div ng-view=""></div>
