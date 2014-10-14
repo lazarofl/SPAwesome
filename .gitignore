@@ -30,6 +30,7 @@ build/
 *.pch
 *.pdb
 *.pgc
+*.db
 *.pgd
 *.rsp
 *.sbr
