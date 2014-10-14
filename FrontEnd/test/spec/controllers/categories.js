@@ -31,19 +31,19 @@ describe('Controller: CategoriesCtrl', function () {
     httpBackend.expectGET().respond(200,
      [ 
      {
-        Id: 1,
-        Name: 'Teste 1',
-        Order: 1,
-        Slug: 'teste-1'
-     },
-     {
-        Id: 2,
-        Name: 'Teste 2',
-        Order: 2,
-        Slug: 'teste-2'
-     }
-     ]
-   );
+      Id: 1,
+      Name: 'Teste 1',
+      Order: 1,
+      Slug: 'teste-1'
+    },
+    {
+      Id: 2,
+      Name: 'Teste 2',
+      Order: 2,
+      Slug: 'teste-2'
+    }
+    ]
+    );
 
     //act
     scope.init();
@@ -53,6 +53,16 @@ describe('Controller: CategoriesCtrl', function () {
     expect(scope.categories.length).toBe(2);
   });
 
+  it('Ao executar init() e não conseguir acessar a API deve ser registrado um erro', function () {
+    //setup
+    httpBackend.expectGET().respond(500, 'erro');
 
+    scope.init();
+
+    httpBackend.flush();
+
+    //expected
+    expect(scope.alerts.length).toBe(1);
+  });
 
 });
