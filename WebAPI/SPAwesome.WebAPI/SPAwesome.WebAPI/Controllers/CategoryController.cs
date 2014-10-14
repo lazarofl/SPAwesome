@@ -40,7 +40,7 @@ namespace SPAwesome.WebAPI.Controllers
         }
 
         // POST api/category
-        public void Post([FromBody]Category category)
+        public Category Post([FromBody]Category category)
         {
             var _category = new Category
             {
@@ -65,6 +65,7 @@ namespace SPAwesome.WebAPI.Controllers
                 _session.Transaction.Commit();
             }
 
+            return _category;
         }
 
         // PUT api/category/5
