@@ -61,6 +61,34 @@
  				$scope.addAlert('Não foi possível adicionar a categoria, verifique a disponibilidade do serviço', 'danger');
  			$scope.loading = false;
  		});
+ 	};
+
+ 	$scope.remove = function(index){
+ 		
+ 		if(confirm('Deseja realmente remover a categoria "' + $scope.categories[index].Name + '"?'))
+ 		{
+
+ 			$scope.loading = true;
+
+ 			var toremove = $scope.categories[index];
+
+ 			Categories
+ 			.deleteCategory(toremove.Id)
+ 			.success(function(data){
+ 				$scope.addAlert(toremove.Name + ' removida com sucesso','success');
+ 				$scope.categories.splice(index, 1);
+ 				$scope.loading = false;
+ 			}).
+ 			error(function(error){
+ 				if(!!error)
+ 					$scope.addAlert(error.ExceptionMessage, 'danger');
+ 				else
+ 					$scope.addAlert('Não foi possível remover a categoria, verifique a disponibilidade do serviço', 'danger');
+ 				$scope.loading = false;
+ 			});
+ 		}
 
  	};
+
+
  });

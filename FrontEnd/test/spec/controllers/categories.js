@@ -78,4 +78,25 @@ describe('Controller: CategoriesCtrl', function () {
     expect(scope.alerts.length).toBe(1);
   });
 
+  it('Ao remover uma categoria deve ser retirado da listagem a categoria correspondente e um alerta deve ser adicionado', function () {
+    //setup
+    scope.categories = [
+      {Id: 1, Name: 'teste1', Order: 1},
+      {Id: 2, Name: 'teste 2', Order: 2},
+      {Id: 3, Name: 'teste 3', Order: 3},
+      {Id: 4, Name: 'teste 4', Order: 4}
+    ];
+
+    httpBackend.expectDELETE().respond(200, {});
+    spyOn(window, 'confirm').andReturn(true);
+
+    //act
+    scope.remove(2); //{Id: 3, Name: 'teste 3', Order: 3}
+    httpBackend.flush();
+
+    //expected
+    expect(scope.categories.length).toBe(3);
+    expect(scope.alerts.length).toBe(1);
+  });
+
 });

@@ -51,7 +51,7 @@
 			<tr ng-repeat="item in categories">
 				<td>{{item.Order}}</td>
 				<td>{{item.Name}}</td>
-				<td><a href="">editar</a> - <a href="">remover</a></td>
+				<td><a href="">editar</a> - <a ng-click="remove($index);" style="cursor:pointer;">remover</a></td>
 			</tr>			
 		</tbody>
 	</table>
