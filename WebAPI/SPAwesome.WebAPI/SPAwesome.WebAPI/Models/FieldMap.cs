@@ -12,7 +12,7 @@ namespace SPAwesome.WebAPI.Models
         {
             Id(x => x.Id);
             Map(x => x.Name);
-            Map(x => x.Order);
+            Map(x => x.Order).Column("fieldOrder");
             Map(x => x.Type).Column("fieldType");
             Map(x => x.Itens);
             References(x => x.SubCategory);
