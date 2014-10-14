@@ -1,4 +1,5 @@
 ﻿using NHibernate;
+using NHibernate.Linq;
 using SPAwesome.WebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -44,14 +45,23 @@ namespace SPAwesome.WebAPI.Controllers
             var _category = new Category
             {
                 Name = category.Name,
-                Order = category.Order,
-                Slug = category.Slug
+                Slug = category.Name.GenerateSlug()
             };
 
             using (_session.BeginTransaction())
             {
-                _session.SaveOrUpdate(_category);
+                var order = 0;
 
+                //obtem dentro da transação o ultimo item
+                var list = _session.CreateCriteria<Category>().List<Category>();
+                
+                if(list !=null && list.Count > 0)
+                order = list.Max(x => x.Order);
+                
+                //a nova categoria vai para o final da lista
+                _category.Order = order++;
+
+                _session.SaveOrUpdate(_category);
                 _session.Transaction.Commit();
             }
 
