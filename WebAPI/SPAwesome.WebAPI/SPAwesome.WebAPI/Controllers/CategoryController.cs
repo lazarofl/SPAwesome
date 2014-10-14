@@ -85,5 +85,15 @@ namespace SPAwesome.WebAPI.Controllers
                 _session.Transaction.Commit();
             }
         }
+
+        [Route("category/{Id}/SubCategories")]
+        public IEnumerable<SubCategory> GetSubCategories(int Id)
+        {
+            using (_session)
+            {
+                return _session.Get<Category>(Id).SubCategories;
+            }
+        
+        }
     }
 }

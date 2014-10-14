@@ -7,7 +7,8 @@ namespace SPAwesome.WebAPI.Models
 {
     public class Category : Entity
     {
-        public Category() {
+        public Category()
+        {
             this.SubCategories = new List<SubCategory>();
         }
 
