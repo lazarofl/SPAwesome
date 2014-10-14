@@ -6,17 +6,23 @@ describe('Controller: CategoriesCtrl', function () {
   beforeEach(module('spawesomeApp'));
 
   var CategoriesCtrl,
+    httpBackend,
+    _Categories,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
     scope = $rootScope.$new();
+    _Categories = {};
     CategoriesCtrl = $controller('CategoriesCtrl', {
-      $scope: scope
+      $scope: scope,
+      Categories: _Categories
     });
+    httpBackend = $httpBackend;
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+    expect(_Categories).not.toBe(null);
+    expect(_Categories).not.toBe(undefined);
   });
 });
