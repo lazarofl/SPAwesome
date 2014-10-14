@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,7 @@ namespace SPAwesome.WebAPI.Controllers
 {
     public class ValuesController : ApiController
     {
+
         // GET api/values
         public IEnumerable<string> Get()
         {

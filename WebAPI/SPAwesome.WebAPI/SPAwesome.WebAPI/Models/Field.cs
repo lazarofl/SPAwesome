@@ -13,11 +13,11 @@ namespace SPAwesome.WebAPI.Models
         public virtual int Order { get; set; }
         public virtual string Itens { get; set; }
 
-        public virtual string[] ToArray(this string itens)
+        public virtual string[] ToArray(string itens)
         {
             return string.IsNullOrEmpty(itens)
                 ? new string[] { }
-                : Itens.Split(',').Select(x => x.Trim()).ToArray();
+                : itens.Split(',').Select(x => x.Trim()).ToArray();
         }
     }
 }
