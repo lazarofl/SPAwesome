@@ -56,7 +56,7 @@
  		}).
  		error(function(error){
  			if(!!error)
- 				$scope.addAlert(error.message, 'danger');
+ 				$scope.addAlert(error.ExceptionMessage, 'danger');
  			else
  				$scope.addAlert('Não foi possível adicionar a categoria, verifique a disponibilidade do serviço', 'danger');
  			$scope.loading = false;
