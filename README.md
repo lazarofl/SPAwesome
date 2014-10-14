@@ -60,16 +60,6 @@ Onde rodo a API?
 A API está rodando em produção em http://www.api.com
 
 
-Instalação
---------------
-
-```sh
-git clone [git-repo-url]
-cd dillinger
-npm i -d
-mkdir -p public/files/{md,html,pdf}
-```
-
 License
 ----
 
