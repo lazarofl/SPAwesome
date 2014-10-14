@@ -59,7 +59,7 @@ namespace SPAwesome.WebAPI.Controllers
                 order = list.Max(x => x.Order);
                 
                 //a nova categoria vai para o final da lista
-                _category.Order = order++;
+                _category.Order = ++order;
 
                 _session.SaveOrUpdate(_category);
                 _session.Transaction.Commit();
@@ -78,7 +78,7 @@ namespace SPAwesome.WebAPI.Controllers
 
                 _category.Name = category.Name;
                 _category.Order = category.Order;
-                _category.Slug = category.Slug;
+                _category.Slug = category.Name.GenerateSlug();
 
                 _session.SaveOrUpdate(_category);
 
