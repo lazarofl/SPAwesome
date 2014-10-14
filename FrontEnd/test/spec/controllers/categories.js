@@ -65,4 +65,17 @@ describe('Controller: CategoriesCtrl', function () {
     expect(scope.alerts.length).toBe(1);
   });
 
+  it('Ao executar init() e não conseguir acessar a API deve ser registrado um erro', function () {
+    //setup
+    scope.name = 'categoria';
+    httpBackend.expectPOST().respond(500, 'erro');
+
+    //act
+    scope.addCategory();
+    httpBackend.flush();
+
+    //expected
+    expect(scope.alerts.length).toBe(1);
+  });
+
 });
