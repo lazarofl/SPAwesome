@@ -12,10 +12,11 @@ que utiliza:
   - [Yeoman] com o [generator-angular] para workflow
   - [Twitter Bootstrap] como framework de UI
   - [AngularJS] como framework SPA
-  - [Jasmine] como framework de testes
+  - [Jasmine] como framework de testes frontend
   - [Karma] como test runner
   - [ASP.NET Web API 2] como framework de web api
   - [FluentNHibernate] como ORM
+  - [Moq] como framework de Mock para interfaces com o banco de dados
 
 Alguns requisitos:
 
@@ -57,7 +58,7 @@ pass1234
 Onde rodo a API?
 ---------------------
 
-A API está rodando em produção em http://www.api.com
+A API está rodando em [[a ser definido]]
 
 
 License
@@ -77,4 +78,4 @@ MIT
 [Twitter Bootstrap]:http://twitter.github.com/bootstrap/
 [ASP.NET Web API 2]:http://www.asp.net/web-api
 [FluentNHibernate]:http://www.fluentnhibernate.org/
-[express]:http://expressjs.com
+[Moq]:https://github.com/Moq/moq4
