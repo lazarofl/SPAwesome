@@ -20,6 +20,12 @@ namespace SPAwesome.WebAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "SubCategoryApi",
+                routeTemplate: "api/{categoryslug}/SubCategory/{id}",
+                defaults: new { id = RouteParameter.Optional, Controller = "SubCategory" }
+            );
         }
     }
 }
