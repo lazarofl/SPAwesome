@@ -41,7 +41,7 @@ angular.module('spawesomeApp')
       return $http.put(urlBase + '/' + subcategory.Id, subcategory)
     };
 
-    dataFactory.deleteCategory = function (id) {
+    dataFactory.deleteSubCategory = function (id) {
       if(id == null)
         throw 'Id não informado';
       return $http.delete(urlBase + '/' + id);

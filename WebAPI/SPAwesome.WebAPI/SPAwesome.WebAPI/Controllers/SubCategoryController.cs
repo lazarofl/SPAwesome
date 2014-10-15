@@ -42,12 +42,15 @@ namespace SPAwesome.WebAPI.Controllers
         }
 
         // POST api/category
-        public SubCategory Post(string categoryslug, [FromBody]SubCategory category)
+        public SubCategory Post(string categoryslug, [FromBody]SubCategory subcategory)
         {
-            var _category = new SubCategory
+            var _category = _session.Query<Category>().Where(x => x.Slug == categoryslug).First();
+
+            var _subcategory = new SubCategory
             {
-                Name = category.Name,
-                Slug = category.Name.GenerateSlug()
+                Category = _category,
+                Name = subcategory.Name,
+                Slug = subcategory.Name.GenerateSlug()
             };
 
             using (_session.BeginTransaction())
@@ -63,13 +66,13 @@ namespace SPAwesome.WebAPI.Controllers
                     order = list.Max(x => x.Order);
 
                 //a nova categoria vai para o final da lista
-                _category.Order = ++order;
+                _subcategory.Order = ++order;
 
-                _session.SaveOrUpdate(_category);
+                _session.SaveOrUpdate(_subcategory);
                 _session.Transaction.Commit();
             }
 
-            return _category;
+            return _subcategory;
         }
 
         // PUT api/category/5

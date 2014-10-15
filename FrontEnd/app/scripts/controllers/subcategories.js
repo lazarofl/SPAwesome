@@ -72,17 +72,42 @@
 
  	$scope.init();
 
+ 	$scope.addSubCategory = function(){
+ 		$scope.loading = true;
+
+ 		var subcategory = {
+ 			Name: $scope.name
+ 		};
+
+ 		subcategories
+ 		.insertSubCategory(subcategory)
+ 		.success(function(data){
+ 			$scope.init();
+
+ 			$scope.addAlert($scope.name + ' adicionado com sucesso','success');
+ 			$scope.name = '';
+ 			$scope.showadd = false;
+ 		}).
+ 		error(function(error){
+ 			if(!!error)
+ 				$scope.addAlert(error.ExceptionMessage, 'danger');
+ 			else
+ 				$scope.addAlert('Não foi possível adicionar a sub-categoria, verifique a disponibilidade do serviço', 'danger');
+ 			$scope.loading = false;
+ 		});
+ 	};
+
  	$scope.remove = function(index){
  		
- 		if(confirm('Deseja realmente remover a categoria "' + $scope.subcategories[index].Name + '"?'))
+ 		if(confirm('Deseja realmente remover a sub-categoria "' + $scope.subcategories[index].Name + '"?'))
  		{
 
  			$scope.loading = true;
 
  			var toremove = $scope.subcategories[index];
 
- 			Categories
- 			.deleteCategory(toremove.Id)
+ 			subcategories
+ 			.deleteSubCategory(toremove.Id)
  			.success(function(data){
  				$scope.addAlert('Sub-categoria removida: ' + toremove.Name, 'success');
  				$scope.subcategories.splice(index, 1);
