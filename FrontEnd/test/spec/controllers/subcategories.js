@@ -6,17 +6,22 @@ describe('Controller: SubcategoriesCtrl', function () {
   beforeEach(module('spawesomeApp'));
 
   var SubcategoriesCtrl,
+    routeParams,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, $routeParams) {
     scope = $rootScope.$new();
+    routeParams = $routeParams;
+    routeParams.category = 'fake-category';
     SubcategoriesCtrl = $controller('SubcategoriesCtrl', {
-      $scope: scope
+      $scope: scope,
+      $routeParams: routeParams
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('Controller de sub-categorias sempre necessita de uma slug para obter a categoria correspondente', function () {
+    expect(scope.slug).toBe('fake-category');
   });
+  
 });

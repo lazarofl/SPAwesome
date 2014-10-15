@@ -14,5 +14,5 @@
  		$location.path( path );
  	};
 
- 	$scope.category = $routeParams.category;
+ 	$scope.slug = $routeParams.category;
  });
