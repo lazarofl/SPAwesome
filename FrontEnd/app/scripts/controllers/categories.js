@@ -8,13 +8,13 @@
  * Controller of the spawesomeApp
  */
  angular.module('spawesomeApp')
- .controller('CategoriesCtrl', function ($scope, Categories) {
+ .controller('CategoriesCtrl', function ($scope, $log, $modal, Categories)
+ {
  	$scope.categories;
  	$scope.alerts = [];
  	$scope.loading = false;
  	$scope.showadd = false;
  	$scope.name = '';
-
 
  	$scope.addAlert = function(message, type) {
  		$scope.alerts.push({type: type, msg: message});
@@ -35,6 +35,28 @@
  		error(function(error){
  			$scope.addAlert('Não foi possível conectar na API, verifique a disponibilidade do serviço', 'danger');
  			$scope.loading = false;
+ 		});
+ 	};
+
+ 	$scope.editCategoryModal = function (index) {
+ 		var modalInstance = $modal.open({
+ 			templateUrl: 'editCategoryModalContent.html',
+ 			controller: 'ModalEditCategoryCtrl',
+ 			size: 'lg',
+ 			resolve: {
+ 				category: function () {
+ 					return $scope.categories[index];
+ 				},
+ 				name: function(){
+ 					return $scope.categories[index].Name;
+ 				}
+ 			}
+ 		});
+
+ 		modalInstance.result.then(function (category) {
+ 			$scope.addAlert(category.Name + ' foi alterado','success');
+ 		}, function () {
+
  		});
  	};
 

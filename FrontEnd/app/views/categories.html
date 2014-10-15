@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
-  <li><a href="javascript:;">Categorias</a></li>
-  <li class="active">Listagem</li>
+	<li><a href="javascript:;">Categorias</a></li>
+	<li class="active">Listagem</li>
 </ol>
 
 <div class="well">
@@ -27,7 +27,7 @@
 
 <div>
 	<div ng-repeat="alert in alerts" class="alert alert-{{alert.type}}">
-	<button type="button" class="close" ng-click="closeAlert($index);" ><span aria-hidden="true">&times;</span></button>
+		<button type="button" class="close" ng-click="closeAlert($index);" ><span aria-hidden="true">&times;</span></button>
 		{{alert.msg}}
 	</div>
 </div>
@@ -51,8 +51,33 @@
 			<tr ng-repeat="item in categories">
 				<td>{{item.Order}}</td>
 				<td>{{item.Name}}</td>
-				<td><a href="">editar</a> - <a ng-click="remove($index);" style="cursor:pointer;">remover</a></td>
+				<td><a ng-click="editCategoryModal($index)" style="cursor:pointer;">editar</a> - <a ng-click="remove($index);" style="cursor:pointer;">remover</a></td>
 			</tr>			
 		</tbody>
 	</table>
 </div>
+
+<script type="text/ng-template" id="editCategoryModalContent.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Editar categoria - {{category.Name}}</h3>
+	</div>
+	<div class="modal-body">
+		<form class="well form-horizontal" role="form">
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">Nome</label>
+				<div class="col-sm-10">
+					<input type="text" ng-disable="loading" required class="form-control" id="name" ng-model="category.Name" placeholder="Nome da categoria">
+				</div>
+			</div>
+		</form>
+		<div class="progress" ng-show="loading">
+			<div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+				<span class="sr-only"></span>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-disable="loading" ng-click="edit()">OK</button>
+		<button class="btn btn-warning" ng-disable="loading" ng-click="cancel()">Cancel</button>
+	</div>
+</script>
