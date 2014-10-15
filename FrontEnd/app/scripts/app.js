@@ -20,11 +20,15 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/categorias', {
         templateUrl: 'views/categories.html',
         controller: 'CategoriesCtrl'
       })
+      .when('/:category/subcategorias', {
+        templateUrl: 'views/subcategories.html',
+        controller: 'SubcategoriesCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/categorias'
       });
   });
