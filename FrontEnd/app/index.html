@@ -23,7 +23,7 @@
     <div class="container">
       <div class="header" ng-controller="HeaderCtrl">
         <ul class="nav nav-pills pull-right">
-          <li ng-repeat="item in menu" ng-class="{active:item.selected}" ng-show="item.visible"><a ng-href="{{item.location}}">{{item.name}}</a></li>
+          <li ng-repeat="item in menu" ng-class="{ active: isActive(item.location)}" ng-show="item.visible"><a ng-click="go(item.location);">{{item.name}}</a></li>
         </ul>
         <h3 class="text-muted">SPAwesome - Gestão de categorias</h3>
       </div>
@@ -89,6 +89,7 @@
         <script src="scripts/controllers/modal/modaleditcategory.js"></script>
         <script src="scripts/controllers/subcategories.js"></script>
         <script src="scripts/services/subcategories.js"></script>
+        <script src="scripts/controllers/login.js"></script>
         <!-- endbuild -->
 </body>
 </html>

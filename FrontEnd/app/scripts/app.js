@@ -28,6 +28,10 @@ angular
         templateUrl: 'views/subcategories.html',
         controller: 'SubcategoriesCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
         redirectTo: '/categorias'
       });
