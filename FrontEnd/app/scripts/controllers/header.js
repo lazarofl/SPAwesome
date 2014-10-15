@@ -20,9 +20,6 @@
  	};
 
  	$scope.isActive = function (viewLocation) { 
- 		console.log(viewLocation);
- 		console.log($location.path());
-
-        return viewLocation === $location.path();
+ 		return $location.path().indexOf(viewLocation.replace('/','')) > -1;
     };
  });
