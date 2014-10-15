@@ -54,7 +54,7 @@
  		});
 
  		modalInstance.result.then(function (category) {
- 			$scope.addAlert(category.Name + ' foi alterado','success');
+ 			$scope.addAlert('Categoria altera: "' + category.Name + '"','success');
  		}, function () {
 
  		});
