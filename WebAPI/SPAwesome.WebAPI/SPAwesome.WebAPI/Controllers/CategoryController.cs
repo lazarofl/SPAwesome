@@ -54,10 +54,10 @@ namespace SPAwesome.WebAPI.Controllers
 
                 //obtem dentro da transação o ultimo item
                 var list = _session.CreateCriteria<Category>().List<Category>();
-                
-                if(list !=null && list.Count > 0)
-                order = list.Max(x => x.Order);
-                
+
+                if (list != null && list.Count > 0)
+                    order = list.Max(x => x.Order);
+
                 //a nova categoria vai para o final da lista
                 _category.Order = ++order;
 
@@ -69,11 +69,12 @@ namespace SPAwesome.WebAPI.Controllers
         }
 
         // PUT api/category/5
-        public void Put(int id, [FromBody]Category category)
+        public Category Put(int id, [FromBody]Category category)
         {
+            Category _category;
             using (_session.BeginTransaction())
             {
-                var _category = _session.Get<Category>(id);
+                _category = _session.Get<Category>(id);
                 if (_category == null)
                     throw new KeyNotFoundException(string.Format("Categoria {0} não encontrada", id));
 
@@ -85,6 +86,7 @@ namespace SPAwesome.WebAPI.Controllers
 
                 _session.Transaction.Commit();
             }
+            return _category;
         }
 
         // DELETE api/category/5
@@ -106,7 +108,7 @@ namespace SPAwesome.WebAPI.Controllers
             {
                 return _session.Get<Category>(Id).SubCategories;
             }
-        
+
         }
     }
 }
