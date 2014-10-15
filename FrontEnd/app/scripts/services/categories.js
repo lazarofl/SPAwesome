@@ -23,6 +23,12 @@
       return $http.get(urlBase + '/' + id);
     };
 
+    dataFactory.getCategoryBySlug = function(slug){
+      if(slug == null)
+        throw 'Slug não informado';
+      return $http.get(urlBase + '/Slug/' + slug);
+    };
+
     dataFactory.insertCategory = function (category) {
       if(category == null)
         throw 'category não informada';

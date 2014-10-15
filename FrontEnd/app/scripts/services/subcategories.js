@@ -11,11 +11,12 @@ angular.module('spawesomeApp')
   .factory('subcategories', function ($http, appConfig) {
 
     var slug = '';
-    var urlBase = appConfig.API_URL() + '/' + slug + '/SubCategory';
+    var urlBase = '';
     var dataFactory = {};
 
-    dataFactory.setCategory = function (category) {
-      slug = category.Slug;
+    dataFactory.setCategory = function (categorySlug) {
+      slug = categorySlug;
+      urlBase = appConfig.API_URL() + '/' + slug + '/SubCategory';
     };
 
     dataFactory.getSubCategories = function () {

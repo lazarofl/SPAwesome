@@ -39,6 +39,15 @@ namespace SPAwesome.WebAPI.Controllers
             }
         }
 
+        [Route("api/category/slug/{slug}")]
+        public Category Get(string slug)
+        {
+            using (_session)
+            {
+                return _session.Query<Category>().Where(x=>x.Slug == slug).First();
+            }
+        }
+
         // POST api/category
         public Category Post([FromBody]Category category)
         {
