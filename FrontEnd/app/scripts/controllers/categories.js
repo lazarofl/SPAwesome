@@ -8,13 +8,17 @@
  * Controller of the spawesomeApp
  */
  angular.module('spawesomeApp')
- .controller('CategoriesCtrl', function ($scope, $log, $modal, Categories)
+ .controller('CategoriesCtrl', function ($scope, $location, $log, $modal, Categories)
  {
  	$scope.categories;
  	$scope.alerts = [];
  	$scope.loading = false;
  	$scope.showadd = false;
  	$scope.name = '';
+
+ 	$scope.go = function ( path ) {
+ 		$location.path( path );
+ 	};
 
  	$scope.addAlert = function(message, type) {
  		$scope.alerts.push({type: type, msg: message});

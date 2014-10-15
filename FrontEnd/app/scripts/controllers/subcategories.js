@@ -7,13 +7,12 @@
  * # SubcategoriesCtrl
  * Controller of the spawesomeApp
  */
-angular.module('spawesomeApp')
-  .controller('SubcategoriesCtrl', function ($scope, $routeParams) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+ angular.module('spawesomeApp')
+ .controller('SubcategoriesCtrl', function ($scope, $location, $routeParams) {
 
-    $scope.category = $routeParams.category;
-  });
+ 	$scope.go = function ( path ) {
+ 		$location.path( path );
+ 	};
+
+ 	$scope.category = $routeParams.category;
+ });
