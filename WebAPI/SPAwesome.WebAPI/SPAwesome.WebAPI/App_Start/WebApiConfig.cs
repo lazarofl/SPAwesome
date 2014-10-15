@@ -17,8 +17,8 @@ namespace SPAwesome.WebAPI
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/Category/{id}",
+                defaults: new { id = RouteParameter.Optional, Controller = "Category" }
             );
 
             config.Routes.MapHttpRoute(
