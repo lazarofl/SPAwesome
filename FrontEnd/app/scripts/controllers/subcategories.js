@@ -8,7 +8,7 @@
  * Controller of the spawesomeApp
  */
  angular.module('spawesomeApp')
- .controller('SubcategoriesCtrl', function ($scope, $location, $routeParams, Categories, subcategories) {
+ .controller('SubcategoriesCtrl', function ($scope, $location, $routeParams, $modal, Categories, subcategories) {
 
  	$scope.subcategories;
  	$scope.alerts = [];
@@ -139,8 +139,8 @@
  			}
  		});
 
- 		modalInstance.result.then(function (category) {
- 			$scope.addAlert('Sub-categoria alterada: ' + category.Name,'success');
+ 		modalInstance.result.then(function (subcategory) {
+ 			$scope.addAlert('Sub-categoria alterada: ' + subcategory.Name,'success');
  		}, function () {
 
  		});

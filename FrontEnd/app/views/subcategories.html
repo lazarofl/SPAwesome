@@ -52,7 +52,7 @@
 			<tr ng-repeat="item in subcategories">
 				<td>{{item.Order}}</td>
 				<td>{{item.Name}}</td>
-				<td><a ng-click="editCategoryModal($index)" style="cursor:pointer;">editar</a> - <a ng-click="remove($index);" style="cursor:pointer;">remover</a></td>
+				<td><a ng-click="editSubCategoryModal($index)">editar</a> - <a ng-click="remove($index);">remover</a></td>
 			</tr>			
 		</tbody>
 	</table>
@@ -60,14 +60,14 @@
 
 <script type="text/ng-template" id="editSubCategoryModalContent.html">
 	<div class="modal-header">
-		<h3 class="modal-title">Editar sub-categoria - {{category.Name}}</h3>
+		<h3 class="modal-title">Editar sub-categoria - {{subcategory.Name}}</h3>
 	</div>
 	<div class="modal-body">
 		<form class="well form-horizontal" role="form">
 			<div class="form-group">
 				<label for="name" class="col-sm-2 control-label">Nome</label>
 				<div class="col-sm-10">
-					<input type="text" ng-disable="loading" required class="form-control" id="name" ng-model="category.Name" placeholder="Nome da sub-categoria">
+					<input type="text" ng-disable="loading" required class="form-control" id="name" ng-model="subcategory.Name" placeholder="Nome da sub-categoria">
 				</div>
 			</div>
 		</form>

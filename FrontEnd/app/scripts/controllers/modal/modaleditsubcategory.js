@@ -8,7 +8,7 @@
  * Controller of the spawesomeApp
  */
 angular.module('spawesomeApp')
-  .controller('ModalEditSubCategoryCtrl', function ($scope, $modalInstance, SubCategories, subcategory, name) {
+  .controller('ModalEditSubCategoryCtrl', function ($scope, $modalInstance, subcategories, subcategory, name) {
 
  	$scope.subcategory = subcategory;
  	$scope.alerts = [];
@@ -24,7 +24,7 @@ angular.module('spawesomeApp')
  	$scope.edit = function(){
  		$scope.loading = true;
 
- 		SubCategories
+ 		subcategories
  		.updateSubCategory($scope.subcategory)
  		.success(function(data){
  			$scope.subcategory = data;
