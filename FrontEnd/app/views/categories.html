@@ -51,7 +51,7 @@
 			<tr ng-repeat="item in categories">
 				<td>{{item.Order}}</td>
 				<td><a ng-click="go('/' + item.Slug + '/subcategorias');">{{item.Name}}</a></td>
-				<td><a ng-click="editCategoryModal($index)" style="cursor:pointer;">editar</a> - <a ng-click="remove($index);" style="cursor:pointer;">remover</a></td>
+				<td><a ng-click="editCategoryModal($index)">editar</a> - <a ng-click="remove($index);">remover</a></td>
 			</tr>			
 		</tbody>
 	</table>
