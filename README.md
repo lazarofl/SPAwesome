@@ -1,4 +1,4 @@
-SPAwesome
+﻿SPAwesome
 =========
 
 Um projeto SPA para gestão de:
@@ -17,6 +17,7 @@ que utiliza:
   - [ASP.NET Web API 2] como framework de web api
   - [FluentNHibernate] como ORM
   - [Moq] como framework de Mock para interfaces com o banco de dados
+  - [Azure] para hospedagem da API com deploy automático a partir do GitHub
 
 Alguns requisitos:
 
@@ -58,7 +59,7 @@ pass1234
 Onde rodo a API?
 ---------------------
 
-A API está rodando em [[a ser definido]]
+A API está rodando em http://spawesome.azurewebsites.net/Help
 
 
 License
@@ -68,6 +69,8 @@ MIT
 
 
 **Free Software, study it!**
+
+[ ![Codeship Status for lazarofl/SPAwesome](https://www.codeship.io/projects/ea3dda30-3707-0132-1435-4e00c89963c9/status)](https://www.codeship.io/projects/41555)
 
 [generator-angular]:https://github.com/yeoman/generator-angular
 [Yeoman]:http://yeoman.io/
@@ -79,3 +82,4 @@ MIT
 [ASP.NET Web API 2]:http://www.asp.net/web-api
 [FluentNHibernate]:http://www.fluentnhibernate.org/
 [Moq]:https://github.com/Moq/moq4
+[Azure]:http://azure.microsoft.com/pt-br/
